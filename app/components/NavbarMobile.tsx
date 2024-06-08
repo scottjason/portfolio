@@ -51,7 +51,10 @@ export const NavbarMobile = (): JSX.Element => {
             </Link>
           </section>
           <section className='flex cursor-pointer text-2xl text-slate-50'>
-            <RxHamburgerMenu onClick={() => setIsOpen(!isOpen)} />
+            <RxHamburgerMenu
+              aria-label='Menu'
+              onClick={() => setIsOpen(!isOpen)}
+            />
           </section>
         </div>
         <div
@@ -62,7 +65,7 @@ export const NavbarMobile = (): JSX.Element => {
           <div className='flex w-full flex-col items-center justify-center space-y-4 p-8'>
             <Link
               href={'/about'}
-              className={`w-full cursor-pointer border-b-[1px] border-gray-300 border-opacity-50 pb-4 pb-4 text-center text-2xl font-light uppercase tracking-widest transition-all hover:text-cyan-500 ${
+              className={`w-full cursor-pointer border-b-[1px] border-gray-300 border-opacity-50 pb-4 text-center text-2xl font-light uppercase tracking-widest transition-all hover:text-cyan-500 ${
                 isActive('/about') ? 'text-cyan-400' : 'text-slate-50'
               }`}
               onClick={() => setIsOpen(false)}
@@ -98,6 +101,7 @@ export const NavbarMobile = (): JSX.Element => {
               CONTACT
             </Link>
             <AiFillGithub
+              aria-label='Github'
               onClick={() => {
                 window.open(githubUrl, '_blank');
                 setIsOpen(false);
@@ -105,6 +109,7 @@ export const NavbarMobile = (): JSX.Element => {
               className='cursor-pointer text-3xl hover:text-cyan-500'
             />
             <CiLinkedin
+              aria-label='LinkedIn'
               onClick={() => {
                 window.open(linkedInUrl, '_blank');
                 setIsOpen(false);
@@ -116,7 +121,11 @@ export const NavbarMobile = (): JSX.Element => {
               className='text-3xl hover:text-cyan-500'
               onClick={() => setIsOpen(false)}
             >
-              <AiOutlineMail />
+              <AiOutlineMail
+                onClick={() => setIsOpen(false)}
+                className='text-3xl hover:text-cyan-500'
+                aria-label='Email'
+              />
             </Link>
           </div>
         </div>
